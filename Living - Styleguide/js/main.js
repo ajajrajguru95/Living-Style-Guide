@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
 	//set a label for each color swatch
 	$('.cd-color-swatch').each(function(){
 		var actual = $(this);
-		$('<b>'+actual.css("background-color")+'</b>').insertAfter(actual);
+		$('<b class="copy">'+actual.css("background-color")+'</b>').insertAfter(actual);
 	});
 
 	/*******************
@@ -53,15 +53,29 @@ jQuery(document).ready(function($){
 	});
 
 	// Button Dimensions for clear size visibility
-		$('#buttons .cd-box button').each(function(idx,value){
-			var cdStructure = $('.cd-box.structure p'),
-				//btnBG  = $(value).css('background-color');
-				btnFs  = $(value).css('font-size'),
-				btnLh  = $(value).css('line-height'),
-				btnheight  = $(value).css('height'),
-				btnWidth  = $(value).css('width');
-			cdStructure.append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
-		});
+	$('#buttons .cd-box button').each(function(idx,value){
+		var cdStructure = $('.cd-box.structure p'),
+			//btnBG  = $(value).css('background-color');
+			btnFs  = $(value).css('font-size'),
+			btnLh  = $(value).css('line-height'),
+			btnheight  = $(value).css('height'),
+			btnWidth  = $(value).css('width');
+			$(cdStructure).each(function(idx, ele){
+				$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
+			})
+	});
+
+	/*******************
+	Copy to Clipboard	
+	********************/
+
+	$(document).on('click', '.copy', function(){
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val($(this).text()).select();
+		document.execCommand("copy");
+		$temp.remove();
+	});
 
 
 	/*******************
@@ -70,7 +84,8 @@ jQuery(document).ready(function($){
 
 	$('.cd-typography .headings').each(function(idx,ele){
 		var heading = $(ele),
-			headingDescriptionText = heading.find('span');
+			headingDescriptionText = heading.siblings('pre');
+			console.log($(ele).html());
 			// body = heading.next('p'),
 			// bodyDescriptionText = body.children('span').eq(0);
 			
@@ -99,19 +114,20 @@ jQuery(document).ready(function($){
 	});
 	//smooth scroll to the selected section
 	$('.cd-main-nav a[href^="#"]').on('click', function(event){
-        event.preventDefault();
-        $('header').removeClass('nav-is-visible');
-        var target= $(this.hash),
-        	topMargin = target.css('marginTop').replace('px', ''),
-        	hedearHeight = $('header').height();
-        $('body,html').animate({'scrollTop': parseInt(target.offset().top - hedearHeight - topMargin)}, 200); 
-    });
-    //update selected navigation element
-    $(window).on('scroll', function(){
-    	updateNavigation();
-    });
+	        event.preventDefault();
+	        $('header').removeClass('nav-is-visible');
+	        var target= $(this.hash),
+	        	topMargin = target.css('marginTop').replace('px', ''),
+	        	hedearHeight = $('header').height();
+	        $('body,html').animate({'scrollTop': parseInt(target.offset().top - hedearHeight - topMargin)}, 200); 
+	    });
 
-    function updateNavigation() {
+	    //update selected navigation element
+	    $(window).on('scroll', function(){
+	    	updateNavigation();
+	    });
+
+    	function updateNavigation() {
 		contentSections.each(function(){
 			var actual = $(this),
 				actualHeight = actual.height(),

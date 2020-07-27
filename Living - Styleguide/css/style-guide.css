@@ -825,50 +825,50 @@ section:nth-of-type(6) h2::before {
   padding: .6em 0;
 }
 .cd-colors li:nth-of-type(1) .cd-color-swatch {
-  background: #5f8ee4;
+  background: #ff353b;
 }
-.cd-colors li:nth-of-type(1) .cd-color-swatch::before {
+/*.cd-colors li:nth-of-type(1) .cd-color-swatch::before {
   background: #759de8;
 }
 .cd-colors li:nth-of-type(1) .cd-color-swatch::after {
   background: #497fe0;
-}
+}*/
 .cd-colors li:nth-of-type(2) .cd-color-swatch {
   background: #19191a;
 }
-.cd-colors li:nth-of-type(2) .cd-color-swatch::before {
+/* .cd-colors li:nth-of-type(2) .cd-color-swatch::before {
   background: #262627;
 }
 .cd-colors li:nth-of-type(2) .cd-color-swatch::after {
   background: #0d0d0d;
-}
+} */
 .cd-colors li:nth-of-type(3) .cd-color-swatch {
   background: #e4655f;
 }
-.cd-colors li:nth-of-type(3) .cd-color-swatch::before {
+/* .cd-colors li:nth-of-type(3) .cd-color-swatch::before {
   background: #e87a75;
 }
 .cd-colors li:nth-of-type(3) .cd-color-swatch::after {
   background: #e05049;
-}
+} */
 .cd-colors li:nth-of-type(4) .cd-color-swatch {
   background: #e6e6e6;
 }
-.cd-colors li:nth-of-type(4) .cd-color-swatch::before {
+/* .cd-colors li:nth-of-type(4) .cd-color-swatch::before {
   background: #f3f3f3;
 }
 .cd-colors li:nth-of-type(4) .cd-color-swatch::after {
   background: #d9d9d9;
-}
+} */
 .cd-colors li:nth-of-type(5) .cd-color-swatch {
   background: #ffffff;
 }
-.cd-colors li:nth-of-type(5) .cd-color-swatch::before {
+/* .cd-colors li:nth-of-type(5) .cd-color-swatch::before {
   background: white;
 }
 .cd-colors li:nth-of-type(5) .cd-color-swatch::after {
   background: #f2f2f2;
-}
+} */
 @media only screen and (min-width: 768px) {
   .cd-colors li {
     width: 19%;
