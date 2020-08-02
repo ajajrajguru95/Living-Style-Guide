@@ -52,17 +52,21 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	// Button Dimensions for clear size visibility
+	/*Button Dimensions for clear size visibility*/
 	$('#buttons .cd-box button').each(function(idx,value){
-		var cdStructure = $('.cd-box.structure p'),
+		var cdStructure = $('.cd-box .output'),
 			//btnBG  = $(value).css('background-color');
 			btnFs  = $(value).css('font-size'),
 			btnLh  = $(value).css('line-height'),
 			btnheight  = $(value).css('height'),
 			btnWidth  = $(value).css('width');
-			$(cdStructure).each(function(idx, ele){
-				$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
-			})
+			$(value).mouseover(function() {
+				$(cdStructure).text('');
+				$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
+			});
+			// $(cdStructure).each(function(idx, ele){
+			// 	$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
+			// })
 	});
 
 	/*******************
