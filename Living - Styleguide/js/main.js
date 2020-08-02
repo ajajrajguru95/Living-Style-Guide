@@ -77,6 +77,7 @@ jQuery(document).ready(function($){
 			// })
 	});
 
+
 	/*******************
 	COPY TO CLIPBOARD	
 	********************/
@@ -114,6 +115,7 @@ jQuery(document).ready(function($){
 		//setTypography(heading, headingDescriptionText);
 		headingDescriptionText.text('Font-size- ' + fontSize + ' Line-Height - '+ lineHeight + ' Font-Family- ' + fontFamily + ' Font-Weight-  ' + fontWeight);
 	});
+	
 	//Font Stack
 	$('.primary-font').text($('body').css('font-family'));
 	$('.secondary-font').text($('h1').css('font-family'));
