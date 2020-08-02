@@ -1,6 +1,7 @@
 jQuery(document).ready(function($){
+
 	/*******************
-		color swatch
+	COLOR SWATCH
 	********************/
 	//convert rgba color to hex color
 	$.cssHooks.backgroundColor = {
@@ -27,9 +28,11 @@ jQuery(document).ready(function($){
 		$('<b class="copy">'+actual.css("background-color")+'</b>').insertAfter(actual);
 	});
 
+
 	/*******************
-		buttons
+	BUTTONS
 	********************/
+
 	var buttonsWrapper = $('#buttons .cd-box'),
 		buttonsHtml = buttonsWrapper.html(),
 		containerHtml = $('<div class="cd-box structure"></div>').insertAfter(buttonsWrapper),
@@ -70,7 +73,7 @@ jQuery(document).ready(function($){
 	});
 
 	/*******************
-	Copy to Clipboard	
+	COPY TO CLIPBOARD	
 	********************/
 
 	$(document).on('click', '.copy', function(){
@@ -83,7 +86,7 @@ jQuery(document).ready(function($){
 
 
 	/*******************
-		typography
+	TYPOGRAPHY
 	********************/
 
 	$('.cd-typography .headings').each(function(idx,ele){
@@ -105,11 +108,13 @@ jQuery(document).ready(function($){
 			fontWeight = heading.css('font-weight');
 		//setTypography(heading, headingDescriptionText);
 		headingDescriptionText.text('Font-size- ' + fontSize + ' Line-Height - '+ lineHeight + ' Font-Family- ' + fontFamily + ' Font-Weight-  ' + fontWeight);
-
 	});
+	//Font Stack
+	$('.primary-font').text($('body').css('font-family'));
+	$('.secondary-font').text($('h1').css('font-family'));
 
 	/*******************
-		main  navigation
+	MAIN  NAVIGATION
 	********************/
 	var contentSections = $('main section');
 	//open navigation on mobile
@@ -145,4 +150,5 @@ jQuery(document).ready(function($){
 			}
 		});
 	}
+
 });
