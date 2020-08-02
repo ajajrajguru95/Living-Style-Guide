@@ -217,16 +217,6 @@ xButtons
   color: #5f8ee4;
 }
 
-/* -------------------------------- 
-
-xIcons 
-
--------------------------------- */
-.cd-icons li {
-  /* icons size */
-  width: 32px;
-  height: 32px;
-}
 
 /* -------------------------------- 
 
@@ -891,37 +881,6 @@ section:nth-of-type(6) h2::before {
   }
 }
 
-/* xIcons section - basic style */
-.cd-icons li {
-  display: inline-block;
-  background-position: center center;
-  background-repeat: no-repeat;
-  margin: 1em;
-}
-.cd-icons .cd-icon-1 {
-  background-image: url("../assets/icons/icon-1.svg");
-}
-.cd-icons .cd-icon-2 {
-  background-image: url("../assets/icons/icon-2.svg");
-}
-.cd-icons .cd-icon-3 {
-  background-image: url("../assets/icons/icon-3.svg");
-}
-.cd-icons .cd-icon-4 {
-  background-image: url("../assets/icons/icon-4.svg");
-}
-.cd-icons .cd-icon-5 {
-  background-image: url("../assets/icons/icon-5.svg");
-}
-.cd-icons .cd-icon-6 {
-  background-image: url("../assets/icons/icon-6.svg");
-}
-.cd-icons .cd-icon-7 {
-  background-image: url("../assets/icons/icon-7.svg");
-}
-.cd-icons .cd-icon-8 {
-  background-image: url("../assets/icons/icon-8.svg");
-}
 
 /* xForm section - basic style */
 .cd-form input[type=text],
