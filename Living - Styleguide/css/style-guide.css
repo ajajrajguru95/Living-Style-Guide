@@ -31,16 +31,6 @@ header {
   background-color: #19191a;
 }
 
-.cd-logo {
-  /* logo box style */
-  background-color: #5f8ee4;
-  width: 120px;
-}
-@media only screen and (min-width: 1024px) {
-  .cd-logo {
-    width: 180px;
-  }
-}
 
 .cd-main-nav {
   /* main navigation background color - full screen on small devices */
@@ -427,27 +417,6 @@ header nav {
   }
 }
 
-.cd-logo {
-  display: inline-block;
-  height: 100%;
-  position: relative;
-}
-.cd-logo img {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-@media only screen and (min-width: 1600px) {
-  .cd-logo {
-    margin-left: 5%;
-  }
-}
 
 .cd-nav-trigger {
   display: block;
