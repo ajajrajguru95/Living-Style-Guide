@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 			btnWidth  = $(value).css('width');
 			$(value).mouseover(function() {
 				$(cdStructure).text('');
-				$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
+				$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth + 'Background-' + $(value).css('background-color'));
 			});
 			// $(cdStructure).each(function(idx, ele){
 			// 	$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
