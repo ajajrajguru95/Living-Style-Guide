@@ -30,30 +30,35 @@ jQuery(document).ready(function($){
 
 
 	/*******************
-	BUTTONS
+	COMMON STRUCTURE FUNCTION
 	********************/
+	
+	function createHtml(id,structure){
+		var elementWrapper = $(id),
+			elementHtml = elementWrapper.html(),
+			containerHtml = $('<div class="cd-box structure"></div>').insertAfter(elementWrapper),
+			elementHtmlText = elementHtml.split('</' + structure + '>'),
+			//buttonTag = $('#buttons .cd-box button');
+			elementTag = $(id + structure);
 
-	var buttonsWrapper = $('#buttons .cd-box'),
-		buttonsHtml = buttonsWrapper.html(),
-		containerHtml = $('<div class="cd-box structure"></div>').insertAfter(buttonsWrapper),
-		buttonsHtmlText = buttonsHtml.split('</button>'),
-		buttonTag = $('#buttons .cd-box button');
-
-	// Button tag creator
-	$.map(buttonsHtmlText, function(value){
-		if(value.indexOf('button') >= 0 ) {
-			var splitText = value.split('class="'),
-				block1 = splitText[0]+'class="';
-				block2 = splitText[1].split('"');
-			
-			var wrapperElement = $('<p></p>').text(block1),
-				spanElement = $('<span></span>').text(block2[0]);
-			spanElement.appendTo(wrapperElement);
-			wrapperElement.appendTo(containerHtml);
-			wrapperElement.append('"'+block2[1]+'&lt;/button&gt;');
-			console.log($(value));
-		}
-	});
+		// Button tag creator
+		$.map(elementHtmlText, function(value){
+			if(value.indexOf(structure) >= 0 ) {
+				var splitText = value.split('class="'),
+					block1 = splitText[0]+'class="';
+					block2 = splitText[1].split('"');
+				
+				var wrapperElement = $('<p></p>').text(block1),
+					spanElement = $('<span></span>').text(block2[0]);
+				spanElement.appendTo(wrapperElement);
+				wrapperElement.appendTo(containerHtml);
+				wrapperElement.append('"'+block2[1]+'&lt;/' + structure + '&gt;');
+				console.log($(value));
+			}
+		});
+	}
+	// Create structure for buttons
+	createHtml('#buttons .cd-box','button');
 
 	/*Button Dimensions for clear size visibility*/
 	$('#buttons .cd-box button').each(function(idx,value){
@@ -71,6 +76,7 @@ jQuery(document).ready(function($){
 			// 	$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
 			// })
 	});
+
 
 	/*******************
 	COPY TO CLIPBOARD	
@@ -109,9 +115,18 @@ jQuery(document).ready(function($){
 		//setTypography(heading, headingDescriptionText);
 		headingDescriptionText.text('Font-size- ' + fontSize + ' Line-Height - '+ lineHeight + ' Font-Family- ' + fontFamily + ' Font-Weight-  ' + fontWeight);
 	});
+	
 	//Font Stack
 	$('.primary-font').text($('body').css('font-family'));
 	$('.secondary-font').text($('h1').css('font-family'));
+
+
+	/*******************
+	FORM-ElEMENTS
+	********************/
+
+	createHtml('#form .cd-box','input');
+
 
 	/*******************
 	MAIN  NAVIGATION
