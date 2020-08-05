@@ -12,8 +12,28 @@
   	
 	<title>Style Guide</title>
 	<style>
+		/*Button structural last element kept hidden due to js functionality*/
 		#buttons .cd-box.structure p:last-of-type{
 			display: none;
+		}
+		/*Copied Mesage Styling*/
+		.copied{
+			display: block;
+			color: green;
+		}
+		.copy{
+			cursor: pointer;
+		}
+		.source{
+			background-color: transparent;
+			border: 0;
+			box-shadow: none;
+			border-bottom: 1px solid #ddd;
+			font-size: 15px;
+			cursor: pointer;
+			color: #5f8ee4;
+			font-weight: 600;
+			padding-left: 0;
 		}
 	</style>
 </head>
@@ -43,19 +63,19 @@
 
 			<ul>
 				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
+					<div class="cd-color-swatch text-primary"></div>
 				</li>
 
 				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
+					<div class="cd-color-swatch text-secondary"></div>
 				</li>
 
 				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
+					<div class="cd-color-swatch text-danger"></div>
 				</li>
 
 				<li class="cd-box">
-					<div class="cd-color-swatch"></div>
+					<div class="cd-color-swatch text-success"></div>
 				</li>
 
 				<li class="cd-box">
@@ -80,22 +100,35 @@
 
 			<div class="cd-box">
 				<div class="cd-box__wrapper">
-					<h1 class="headings">Heading, <span></span></h1>
-					<button class="btn btn-primary source">View Source</button>
-					<pre></pre>
+					<h1 class="headings">Heading1</h1>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
 				</div>
 				<div class="cd-box__wrapper">
-					<h2 class="headings">Heading2, <span></span></h2>
-					<button class="btn btn-primary source">View Source</button>
-					<pre></pre>
+					<h2 class="headings">Heading2</h2>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
 				</div>
 				<div class="cd-box__wrapper">
-					<h3 class="headings">Heading3, <span></span></h3>
-					<button class="btn btn-primary source">View Source</button>
-					<pre></pre>
+					<h3 class="headings">Heading3</h3>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
 				</div>
-				
-				
+				<div class="cd-box__wrapper">
+					<h4 class="headings">Heading4</h4>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
+				</div>
+				<div class="cd-box__wrapper">
+					<h5 class="headings">Heading5</h5>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
+				</div>
+				<div class="cd-box__wrapper">
+					<h6 class="headings">Heading6</h6>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
+				</div>
 			</div>
 		</section>
 

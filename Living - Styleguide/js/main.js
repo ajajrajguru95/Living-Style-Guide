@@ -79,6 +79,11 @@ jQuery(document).ready(function($){
 		});
 	});
 
+	$(document).on('click', '.source', function(){
+		$(this).prev('pre').toggle('500');
+		 $(this).text( ($(this).text() == 'View Source' ? 'Close' : 'View Source') )
+	});
+
 
 	/*******************
 	COPY TO CLIPBOARD	
@@ -90,6 +95,7 @@ jQuery(document).ready(function($){
 		$temp.val($(this).text()).select();
 		document.execCommand("copy");
 		$temp.remove();
+		$('<span class="copied">Copied</div>').appendTo($(this)).fadeOut(2000);
 	});
 
 
@@ -99,17 +105,7 @@ jQuery(document).ready(function($){
 
 	$('.cd-typography .headings').each(function(idx,ele){
 		var heading = $(ele),
-			headingDescriptionText = heading.siblings('pre');
-			//console.log($(ele).html());
-			// body = heading.next('p'),
-			// bodyDescriptionText = body.children('span').eq(0);
-			
-		//setTypography(body, bodyDescriptionText);
-		// $(window).on('resize', function(){
-		// 	setTypography(heading, headingDescriptionText);
-		// 	setTypography(body, bodyDescriptionText);
-		// });
-
+		headingDescriptionText = heading.siblings('pre');
 		var fontSize = Math.round(heading.css('font-size').replace('px',''))+'px',
 			lineHeight = heading.css('line-height'),
 			fontFamily = (heading.css('font-family').split(','))[0].replace(/\'/g, '').replace(/\"/g, ''),
@@ -136,8 +132,11 @@ jQuery(document).ready(function($){
 	$('#utilities .util-structure').each(function(idx,ele){
 		var elementHtml = $(ele).html(),
 		//convertText = $(ele).text(elementHtml),
-		containerHtml = $('<pre><div class="cd-box structure"></div></pre>').insertAfter($(ele));
-		containerHtml.text(elementHtml);
+		generateContent = $('<pre class="copy" hidden></pre>');
+		$(ele).append(generateContent);
+		//containerHtml = $('<pre hidden></pre>').insertAfter($(ele));
+		generateContent.text(elementHtml);
+		$('<button class="source">View Source</button>').insertAfter(generateContent);
 	})
 	
 
