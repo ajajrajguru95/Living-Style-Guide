@@ -4,28 +4,32 @@ jQuery(document).ready(function($){
 	COLOR SWATCH
 	********************/
 	//convert rgba color to hex color
-	$.cssHooks.backgroundColor = {
-	    get: function(elem) {
-	        if (elem.currentStyle)
-	            var bg = elem.currentStyle["background-color"];
-	        else if (window.getComputedStyle)
-	            var bg = document.defaultView.getComputedStyle(elem,
-	                null).getPropertyValue("background-color");
-	        if (bg.search("rgb") == -1)
-	            return bg;
-	        else {
-	            bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-	            function hex(x) {
-	                return ("0" + parseInt(x).toString(16)).slice(-2);
-	            }
-	            return "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3]);
-	        }
-	    }
-	}
+	 $.cssHooks.backgroundColor = {
+		get: function (elem) {
+			if (elem.currentStyle)
+				var bg = elem.currentStyle["backgroundColor"];
+			else if (window.getComputedStyle)
+				var bg = document.defaultView.getComputedStyle(elem,
+				null).getPropertyValue("background-color");
+			if (bg.search('rgba') > -1) {
+				return '#00ffffff';
+			} else {
+				if (bg.search('rgb') == -1) {
+					return bg;
+				} else {
+					bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+				function hex(x) {
+					return ("0" + parseInt(x).toString(16)).slice(-2);
+				}
+					return "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3]);
+				}
+			}
+		}
+	};
 	//set a label for each color swatch
 	$('.cd-color-swatch').each(function(){
 		var actual = $(this);
-		$('<b class="copy">'+actual.css("background-color")+'</b>').insertAfter(actual);
+		$('<b class="copy">'+actual.css("backgroundColor")+'</b>').insertAfter(actual);
 	});
 
 
@@ -53,7 +57,7 @@ jQuery(document).ready(function($){
 				spanElement.appendTo(wrapperElement);
 				wrapperElement.appendTo(containerHtml);
 				wrapperElement.append('"'+block2[1]+'&lt;/' + structure + '&gt;');
-				console.log($(value));
+				//console.log($(value));
 			}
 		});
 	}
@@ -62,19 +66,22 @@ jQuery(document).ready(function($){
 
 	/*Button Dimensions for clear size visibility*/
 	$('#buttons .cd-box button').each(function(idx,value){
+		$(value).attr('data-bg', $(value).css('background-color'));
 		var cdStructure = $('.cd-box .output'),
-			//btnBG  = $(value).css('background-color');
-			btnFs  = $(value).css('font-size'),
-			btnLh  = $(value).css('line-height'),
-			btnheight  = $(value).css('height'),
-			btnWidth  = $(value).css('width');
-			$(value).mouseover(function() {
-				$(cdStructure).text('');
-				$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth + 'Background-' + $(value).css('background-color'));
-			});
-			// $(cdStructure).each(function(idx, ele){
-			// 	$(ele).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth);
-			// })
+		btnBG  = $(value).data('bg'),
+		btnFs  = $(value).css('font-size'),
+		btnLh  = $(value).css('line-height'),
+		btnheight  = $(value).css('height'),
+		btnWidth  = $(value).css('width');
+		$(value).mouseover(function() {
+			$(cdStructure).text('');
+			$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth + 'Background-' + btnBG);
+		});
+	});
+
+	$(document).on('click', '.source', function(){
+		$(this).prev('pre').toggle('500');
+		 $(this).text( ($(this).text() == 'View Source' ? 'Close' : 'View Source') )
 	});
 
 
@@ -88,6 +95,7 @@ jQuery(document).ready(function($){
 		$temp.val($(this).text()).select();
 		document.execCommand("copy");
 		$temp.remove();
+		$('<span class="copied">Copied</div>').appendTo($(this)).fadeOut(2000);
 	});
 
 
@@ -97,17 +105,7 @@ jQuery(document).ready(function($){
 
 	$('.cd-typography .headings').each(function(idx,ele){
 		var heading = $(ele),
-			headingDescriptionText = heading.siblings('pre');
-			console.log($(ele).html());
-			// body = heading.next('p'),
-			// bodyDescriptionText = body.children('span').eq(0);
-			
-		//setTypography(body, bodyDescriptionText);
-		// $(window).on('resize', function(){
-		// 	setTypography(heading, headingDescriptionText);
-		// 	setTypography(body, bodyDescriptionText);
-		// });
-
+		headingDescriptionText = heading.siblings('pre');
 		var fontSize = Math.round(heading.css('font-size').replace('px',''))+'px',
 			lineHeight = heading.css('line-height'),
 			fontFamily = (heading.css('font-family').split(','))[0].replace(/\'/g, '').replace(/\"/g, ''),
@@ -127,6 +125,20 @@ jQuery(document).ready(function($){
 
 	createHtml('#form .cd-box','input');
 
+
+	/*******************
+	UTILITIES
+	********************/
+	$('#utilities .util-structure').each(function(idx,ele){
+		var elementHtml = $(ele).html(),
+		//convertText = $(ele).text(elementHtml),
+		generateContent = $('<pre class="copy" hidden></pre>');
+		$(ele).append(generateContent);
+		//containerHtml = $('<pre hidden></pre>').insertAfter($(ele));
+		generateContent.text(elementHtml);
+		$('<button class="source">View Source</button>').insertAfter(generateContent);
+	})
+	
 
 	/*******************
 	MAIN  NAVIGATION
