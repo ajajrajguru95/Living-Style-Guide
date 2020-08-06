@@ -12,6 +12,30 @@
   	
 	<title>Style Guide</title>
 	<style>
+		body{
+			display: flex;
+		}
+		@media (min-width: 1024px){
+			header{
+				display: flex;
+				height: 100vh;
+				max-width: 210px;
+			}
+			main{
+				flex: 1;
+				padding-left: 200px;
+				max-width: initial;
+				margin: 0 30px;
+			}
+			.cd-main-nav{
+				display: flex;
+				flex-direction: column;
+				height: 100vh;
+				align-items: center;
+				width: auto;
+				justify-content: space-evenly;
+			}
+		}
 		/*Button structural last element kept hidden due to js functionality*/
 		#buttons .cd-box.structure p:last-of-type{
 			display: none;

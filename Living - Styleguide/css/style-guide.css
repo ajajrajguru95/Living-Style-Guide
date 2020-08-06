@@ -71,13 +71,6 @@ header {
   background-color: white;
 }
 
-.cd-download {
-  /* download button top-right visible on big devices */
-  background-color: #323234;
-}
-.no-touch .cd-download:hover {
-  background-color: #3f3f41;
-}
 .cd-download span {
   /* tooltip */
   background: #5f8ee4;
@@ -623,26 +616,11 @@ header nav {
   }
 }
 
-main {
-  width: 90%;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 50px 0;
-}
 main > h1 {
   text-align: center;
-  margin: 3em 0;
-}
-@media only screen and (min-width: 1024px) {
-  main {
-    padding-top: 80px;
-  }
+  margin: 1.5em 0;
 }
 @media only screen and (min-width: 1600px) {
-  main {
-    max-width: none;
-    padding: 120px 0 50px;
-  }
   main > h1 {
     position: fixed;
     top: 0;
