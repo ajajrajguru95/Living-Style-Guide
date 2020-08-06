@@ -7,6 +7,7 @@ body {
   /* this is the page background */
   background-color: #ffffff;
 }
+ul{list-style: none;padding: 0;margin: 0;}
 
 /* -------------------------------- 
 
@@ -71,15 +72,6 @@ header {
   background-color: white;
 }
 
-.cd-download span {
-  /* tooltip */
-  background: #5f8ee4;
-  color: #ffffff;
-}
-.cd-download span::before {
-  /* right arrow color */
-  border-color: #5f8ee4;
-}
 
 /* -------------------------------- 
 
@@ -642,29 +634,29 @@ section:after {
   display: table;
   clear: both;
 }
-section:nth-of-type(1) h2::before {
+.section-heading{
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+section:nth-of-type(1) .section-heading::before {
   content: '1. ';
 }
-section:nth-of-type(2) h2::before {
+section:nth-of-type(2) .section-heading::before {
   content: '2. ';
 }
-section:nth-of-type(3) h2::before {
+section:nth-of-type(3) .section-heading::before {
   content: '3. ';
 }
-section:nth-of-type(4) h2::before {
+section:nth-of-type(4) .section-heading::before {
   content: '4. ';
 }
-section:nth-of-type(5) h2::before {
+section:nth-of-type(5) .section-heading::before {
   content: '5. ';
 }
-section:nth-of-type(6) h2::before {
+section:nth-of-type(6) .section-heading::before {
   content: '6. ';
 }
-@media only screen and (min-width: 768px) {
-  section {
-    margin: 3em 0 5em;
-  }
-}
+
 @media only screen and (min-width: 1600px) {
   section {
     width: 48%;
@@ -729,10 +721,14 @@ section:nth-of-type(6) h2::before {
 }
 
 /* xColor section - basic style */
+.cd-colors ul{
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+}
 .cd-colors li {
   text-align: center;
   width: 48%;
-  float: left;
   margin: 0 4% 1em 0;
 }
 .cd-colors li:nth-of-type(2n) {
@@ -809,7 +805,6 @@ section:nth-of-type(6) h2::before {
 @media only screen and (min-width: 768px) {
   .cd-colors li {
     width: 19%;
-    float: left;
     margin: 0 1.25% 1em 0;
   }
   .cd-colors li:nth-of-type(2n) {
@@ -835,12 +830,13 @@ section:nth-of-type(6) h2::before {
   }
 }
 
-/* xTypography section - basic style */
-.cd-typography h1::before {
-  content: 'Aa - ';
-  color: #5f8ee4;
+.cd-typography .cd-box__wrapper:not(:last-child){
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .75em;
+    margin-bottom: .75em;
 }
 
+/* xTypography section - basic style */
 .cd-buttons .cd-box:first-of-type {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -879,6 +875,11 @@ section:nth-of-type(6) h2::before {
     display: none;
   }
 }
-.no-csstransitions .cd-select::after {
-  display: none;
+
+.cd-fonts__row:not(:last-child){
+    border-bottom: 1px solid #ddd;
+    margin-bottom: .75em;
+}
+.cd-fonts__row{
+  padding: .75em 0;
 }
