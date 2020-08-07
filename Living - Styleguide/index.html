@@ -12,7 +12,16 @@
   	
 	<title>Style Guide</title>
 	<style>
-		body{display:flex}@media (min-width:1024px){header{flex:1;display:flex;height:100vh;max-width:210px}main{flex:1 0 calc(100vh - 210px);padding-left:200px;max-width:initial;margin:0 30px}.cd-main-nav{display:flex;flex-direction:column;height:100vh;align-items:center;width:auto;justify-content:space-evenly}}#buttons .cd-box.structure p:last-of-type{display:none}.copied{display:block;color:green}.copy{cursor:pointer}.source{background-color:transparent;border:0;box-shadow:none;font-size:15px;cursor:pointer;color:#5f8ee4;font-weight:600;padding-left:0}
+		body{display:flex}@media (min-width:1024px){header{flex:1;display:flex;height:100vh;max-width:210px}main{flex:1 0 calc(100vh - 210px);padding-left:200px;max-width:initial;margin:0 30px}.cd-main-nav{display:flex;flex-direction:column;height:100vh;align-items:center;width:auto;justify-content:space-evenly}}#buttons .cd-box.structure p:last-of-type{display:none}.copied{display:block;color:green}.copy{cursor:pointer}.source{background-color:transparent;border:0;box-shadow:none;font-size:15px;cursor:pointer;color:#5f8ee4;font-weight:600;padding-left:0;outline:0;}
+		pre{background-color: #1B1B18;padding: 10px 15px;font-size: 16px;color: #fff;}
+		pre span{
+			color: #f92672;
+    			padding-left: 20px;
+    			padding-right: 5px;
+		}
+		pre span:first-child{
+			padding-left: 0;
+		}
 	</style>
 </head>
 <body>
@@ -120,7 +129,7 @@
 				<button class="btn btn-alert">Alert</button>
 				<button class="btn btn-outline">Outline</button>
 				<!-- Show button dimension on hover -->
-				<div class="output copy"></div>	
+				<pre class="output copy"></pre>	
 			</div>
 
 		</section>

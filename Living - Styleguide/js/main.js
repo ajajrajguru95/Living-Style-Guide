@@ -75,12 +75,12 @@ jQuery(document).ready(function($){
 		btnWidth  = $(value).css('width');
 		$(value).mouseover(function() {
 			$(cdStructure).text('');
-			$(cdStructure).append('Font-size- ' + btnFs + ' Line-Height - '+ btnLh + ' Height- ' + btnheight + ' Width-  ' + btnWidth + 'Background-' + btnBG);
+			$(cdStructure).append('<span>Font-size-</span>'+btnFs+'<span>Line-Height-</span>'+btnLh+'<span>Height-</span>'+btnheight+'<span>Width-</span>'+btnWidth+'<span>Background-</span>'+btnBG);
 		});
 	});
 
 	$(document).on('click', '.source', function(){
-		$(this).prev('pre').toggle('500');
+		$(this).prev('pre').slideToggle('500');
 		 $(this).text( ($(this).text() == 'View Source' ? 'Close' : 'View Source') )
 	});
 
@@ -111,7 +111,7 @@ jQuery(document).ready(function($){
 			fontFamily = (heading.css('font-family').split(','))[0].replace(/\'/g, '').replace(/\"/g, ''),
 			fontWeight = heading.css('font-weight');
 		//setTypography(heading, headingDescriptionText);
-		headingDescriptionText.text('Font-size- ' + fontSize + ' Line-Height - '+ lineHeight + ' Font-Family- ' + fontFamily + ' Font-Weight-  ' + fontWeight);
+		headingDescriptionText.html('<span>Font-size-</span>'+fontSize+'<span>Line-Height-</span>'+lineHeight+'<span>Font-Family-</span>'+fontFamily+'<span>Font-Weight-</span>'+fontWeight);
 	});
 	
 	//Font Stack
