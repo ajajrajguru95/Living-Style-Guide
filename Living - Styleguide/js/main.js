@@ -66,16 +66,17 @@ jQuery(document).ready(function($){
 
 	/*Button Dimensions for clear size visibility*/
 	$('#buttons .cd-box button').each(function(idx,value){
-		$(value).attr('data-bg', $(value).css('background-color'));
 		var cdStructure = $('.cd-box .output'),
-		btnBG  = $(value).data('bg'),
 		btnFs  = $(value).css('font-size'),
 		btnLh  = $(value).css('line-height'),
 		btnheight  = $(value).css('height'),
-		btnWidth  = $(value).css('width');
+		btnWidth  = $(value).css('width'),
+		btnBG  = $(value).css('background-color');
 		$(value).mouseover(function() {
+			btnhoverBG  = $(value).css('background-color');
 			$(cdStructure).text('');
-			$(cdStructure).append('<span>Font-size-</span>'+btnFs+'<span>Line-Height-</span>'+btnLh+'<span>Height-</span>'+btnheight+'<span>Width-</span>'+btnWidth+'<span>Background-</span>'+btnBG);
+			$(cdStructure).show('fast');
+			$(cdStructure).append('<span>Font-size-</span>'+btnFs+'<span>Line-Height-</span>'+btnLh+'<span>Height-</span>'+btnheight+'<span>Width-</span>'+btnWidth+'<span>Background-Color-</span>'+btnBG+'<span>Background Hover-</span>'+btnhoverBG);
 		});
 	});
 
@@ -127,9 +128,9 @@ jQuery(document).ready(function($){
 
 
 	/*******************
-	UTILITIES
+	REUSABLE COMPONENTS
 	********************/
-	$('#utilities .util-structure').each(function(idx,ele){
+	$('.util-structure').each(function(idx,ele){
 		var elementHtml = $(ele).html(),
 		//convertText = $(ele).text(elementHtml),
 		generateContent = $('<pre class="copy" hidden></pre>');
@@ -154,7 +155,7 @@ jQuery(document).ready(function($){
 	        $('header').removeClass('nav-is-visible');
 	        var target= $(this.hash),
 	        	topMargin = target.css('marginTop').replace('px', ''),
-	        	hedearHeight = $('header').height();
+	        	hedearHeight = $('header').height() - 35;
 	        $('body,html').animate({'scrollTop': parseInt(target.offset().top - hedearHeight - topMargin)}, 200); 
 	    });
 

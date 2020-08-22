@@ -12,7 +12,7 @@
   	
 	<title>Style Guide</title>
 	<style>
-		body{display:flex}@media (min-width:1024px){header{flex:1;display:flex;height:100vh;max-width:210px}main{flex:1 0 calc(100vh - 210px);padding-left:200px;max-width:initial;margin:0 30px}.cd-main-nav{display:flex;flex-direction:column;height:100vh;align-items:center;width:auto;justify-content:space-evenly}}#buttons .cd-box.structure p:last-of-type{display:none}.copied{display:block;color:green}.copy{cursor:pointer}.source{background-color:transparent;border:0;box-shadow:none;font-size:15px;cursor:pointer;color:#5f8ee4;font-weight:600;padding-left:0;outline:0;}
+		main{padding-top: 100px;max-width: 1024px;margin: 0 auto;}#buttons .cd-box.structure p:last-of-type{display:none}.copied{display:block;color:green}.copy{cursor:pointer}.source{background-color:transparent;border:0;box-shadow:none;font-size:15px;cursor:pointer;color:#5f8ee4;font-weight:600;padding-left:0;outline:0;}
 		pre{background-color: #1B1B18;padding: 10px 15px;font-size: 16px;color: #fff;}
 		pre span{
 			color: #f92672;
@@ -34,7 +34,9 @@
 				<li><a href="#typography">Typography</a></li>
 				<li><a href="#buttons">Buttons</a></li>
 				<li><a href="#form">Form</a></li>
+				<li><a href="#reusable">Reusable</a></li>
 				<li><a href="#utilities">Utilities</a></li>
+				
 			</ul> <!-- cd-main-nav -->
 		</nav>
 		
@@ -116,6 +118,11 @@
 					<pre class="copy" hidden></pre>
 					<button class="source">View Source</button>
 				</div>
+				<div class="cd-box__wrapper">
+					<p class="headings">P tag</p>
+					<pre class="copy" hidden></pre>
+					<button class="source">View Source</button>
+				</div>
 			</div>
 		</section>
 
@@ -129,7 +136,7 @@
 				<button class="btn btn-alert">Alert</button>
 				<button class="btn btn-outline">Outline</button>
 				<!-- Show button dimension on hover -->
-				<pre class="output copy"></pre>	
+				<pre class="output copy" hidden></pre>	
 			</div>
 
 		</section>
@@ -145,8 +152,8 @@
 
 
 		<!-- Helpers -->
-		<section id="utilities" class="cd-utilities">
-			<div class="section-heading">Utilities</div>
+		<section id="reusable" class="cd-reusable">
+			<div class="section-heading">Reusable Component</div>
 			<div class="cd-box">
 				<div class="util-structure">
 					<div class="card">
@@ -175,6 +182,28 @@
 						</div>
 						<div>sdfs sfs</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Utilities-->
+		<section id="utilities" class="cd-utilities">
+			<div class="section-heading">Utilities</div>
+			<div class="cd-box">
+				<div class="util-structure">
+					<div class="text-underline">Text underline</div>
+				</div>
+				<div class="util-structure">
+					<div class="overflow-hidden">Overflow Hidden</div>
+				</div>
+				<div class="util-structure">
+					<div class="ellipsis">Ellipsis</div>
+				</div>
+				<div class="util-structure">
+					<div class="no-border">No Border</div>
+				</div>
+				<div class="util-structure">
+					<div class="cursor-pointer">Cursor Pointer</div>
 				</div>
 			</div>
 		</section>
