@@ -7,6 +7,7 @@ body {
   /* this is the page background */
   background-color: #ffffff;
 }
+ul{list-style: none;padding: 0;margin: 0;}
 
 /* -------------------------------- 
 
@@ -71,22 +72,6 @@ header {
   background-color: white;
 }
 
-.cd-download {
-  /* download button top-right visible on big devices */
-  background-color: #323234;
-}
-.no-touch .cd-download:hover {
-  background-color: #3f3f41;
-}
-.cd-download span {
-  /* tooltip */
-  background: #5f8ee4;
-  color: #ffffff;
-}
-.cd-download span::before {
-  /* right arrow color */
-  border-color: #5f8ee4;
-}
 
 /* -------------------------------- 
 
@@ -394,7 +379,7 @@ header {
   z-index: 10;
 }
 header nav {
-  display: inline-block;
+  display: block;
 }
 @media only screen and (min-width: 1024px) {
   header {
@@ -492,6 +477,7 @@ header nav {
   padding: 1em 0;
   border-bottom-width: 1px;
   border-style: solid;
+  border: 0;
 }
 .cd-main-nav li:first-of-type a {
   border-top-width: 1px;
@@ -499,7 +485,9 @@ header nav {
 @media only screen and (min-width: 1024px) {
   .cd-main-nav {
     position: static;
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -509,7 +497,6 @@ header nav {
     height: 80px;
     background: transparent;
     padding: 0 2em;
-    text-align: left;
   }
   .cd-main-nav li {
     display: table-cell;
@@ -529,11 +516,7 @@ header nav {
     border-top: none;
   }
 }
-@media only screen and (min-width: 1600px) {
-  .cd-main-nav {
-    display: none;
-  }
-}
+
 
 .nav-is-visible .cd-nav-trigger span::before {
   -webkit-transform: translateY(0) rotate(-45deg);
@@ -623,26 +606,11 @@ header nav {
   }
 }
 
-main {
-  width: 90%;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 50px 0;
-}
 main > h1 {
   text-align: center;
-  margin: 3em 0;
-}
-@media only screen and (min-width: 1024px) {
-  main {
-    padding-top: 80px;
-  }
+  margin: 1em 0;
 }
 @media only screen and (min-width: 1600px) {
-  main {
-    max-width: none;
-    padding: 120px 0 50px;
-  }
   main > h1 {
     position: fixed;
     top: 0;
@@ -664,39 +632,30 @@ section:after {
   display: table;
   clear: both;
 }
-section:nth-of-type(1) h2::before {
+.section-heading{
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+section:nth-of-type(1) .section-heading::before {
   content: '1. ';
 }
-section:nth-of-type(2) h2::before {
+section:nth-of-type(2) .section-heading::before {
   content: '2. ';
 }
-section:nth-of-type(3) h2::before {
+section:nth-of-type(3) .section-heading::before {
   content: '3. ';
 }
-section:nth-of-type(4) h2::before {
+section:nth-of-type(4) .section-heading::before {
   content: '4. ';
 }
-section:nth-of-type(5) h2::before {
+section:nth-of-type(5) .section-heading::before {
   content: '5. ';
 }
-section:nth-of-type(6) h2::before {
+section:nth-of-type(6) .section-heading::before {
   content: '6. ';
 }
-@media only screen and (min-width: 768px) {
-  section {
-    margin: 3em 0 5em;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  section {
-    width: 48%;
-    float: left;
-    margin: 0 4% 4em 0;
-  }
-  section:nth-of-type(2n) {
-    margin-right: 0;
-  }
-}
+
+
 
 /* xBranding section - basic style */
 .cd-branding .cd-box {
@@ -751,10 +710,14 @@ section:nth-of-type(6) h2::before {
 }
 
 /* xColor section - basic style */
+.cd-colors ul{
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+}
 .cd-colors li {
   text-align: center;
   width: 48%;
-  float: left;
   margin: 0 4% 1em 0;
 }
 .cd-colors li:nth-of-type(2n) {
@@ -830,8 +793,7 @@ section:nth-of-type(6) h2::before {
 } */
 @media only screen and (min-width: 768px) {
   .cd-colors li {
-    width: 19%;
-    float: left;
+    width: 15%;
     margin: 0 1.25% 1em 0;
   }
   .cd-colors li:nth-of-type(2n) {
@@ -857,12 +819,22 @@ section:nth-of-type(6) h2::before {
   }
 }
 
-/* xTypography section - basic style */
-.cd-typography h1::before {
-  content: 'Aa - ';
-  color: #5f8ee4;
+.cd-typography .cd-box__wrapper:not(:last-child){
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .75em;
+    margin-bottom: .75em;
 }
 
+.cd-typography .headings{
+  display: block;
+}
+
+.util-structure .source{
+    margin: 10px 0 15px; 
+}
+
+
+/* xTypography section - basic style */
 .cd-buttons .cd-box:first-of-type {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -901,6 +873,11 @@ section:nth-of-type(6) h2::before {
     display: none;
   }
 }
-.no-csstransitions .cd-select::after {
-  display: none;
+
+.cd-fonts__row:not(:last-child){
+    border-bottom: 1px solid #ddd;
+    margin-bottom: .75em;
+}
+.cd-fonts__row{
+  padding: .75em 0;
 }
