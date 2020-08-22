@@ -26,6 +26,15 @@ jQuery(document).ready(function($){
 			}
 		}
 	};
+
+	// Get color and set to bg color if not set
+	$('.cd-colors .cd-box').each(function(idx,ele){
+		var getColor = $(ele).find('.cd-color-swatch');
+		var gettextColor = getColor.css('color');
+		if(getColor.css('background-color') == '#00ffffff'){
+			getColor.css('background-color',gettextColor);
+		}
+	})
 	//set a label for each color swatch
 	$('.cd-color-swatch').each(function(){
 		var actual = $(this);
@@ -117,15 +126,7 @@ jQuery(document).ready(function($){
 	
 	//Font Stack
 	$('.primary-font').text($('body').css('font-family'));
-	$('.secondary-font').text($('h1').css('font-family'));
-
-
-	/*******************
-	FORM-ElEMENTS
-	********************/
-
-	createHtml('#form .cd-box','input');
-
+	$('.secondary-font').text($('.secondary-font,.sub-font').css('font-family'));
 
 	/*******************
 	REUSABLE COMPONENTS
@@ -133,7 +134,7 @@ jQuery(document).ready(function($){
 	$('.util-structure').each(function(idx,ele){
 		var elementHtml = $(ele).html(),
 		//convertText = $(ele).text(elementHtml),
-		generateContent = $('<pre class="copy" hidden></pre>');
+		generateContent = $('<pre class="copy"></pre>');
 		$(ele).append(generateContent);
 		//containerHtml = $('<pre hidden></pre>').insertAfter($(ele));
 		generateContent.text(elementHtml);
