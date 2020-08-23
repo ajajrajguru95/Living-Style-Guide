@@ -7,5 +7,5 @@ More info https://www.smashingmagazine.com/2016/05/creating-a-living-style-guide
 - [x] There should be copy code/view source option.
 - [x] Style guide should adapt to any theme/skin.
 - [x] Should be modular and component friendly.
-- [ ] It should adapt to any framework and any client regardless of structure.
-- [ ] Easy to modify or add/update sections.
+- [x] It should adapt to any framework and any client regardless of structure.
+- [x] Easy to modify or add/update sections.
