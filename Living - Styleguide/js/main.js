@@ -128,6 +128,10 @@ jQuery(document).ready(function($){
 	$('.primary-font').text($('body').css('font-family'));
 	$('.secondary-font').text($('.secondary-font,.sub-font').css('font-family'));
 
+	//Get container size and gutter
+	$('.container-size').text('Max-width: ', $('.container').css('max-width'), 'Width: ' ,$('.container').css('width'));
+	$('.gutter-spacing').text($('.container').css('padding-left'));
+
 	/*******************
 	REUSABLE COMPONENTS
 	********************/
