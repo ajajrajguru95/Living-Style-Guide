@@ -36,7 +36,7 @@
 	<main class="container grid-container">
 		<h1>Style Guide</h1>
 		
-		<!-- Colors -->
+		<!-- Colors - Will take standard class - text-primary but if any other class name is used then please pass the same -->
 		<section id="colors" class="cd-colors">
 			<div class="section-heading">Colors</div>
 
@@ -59,7 +59,7 @@
 			</ul>
 		</section>
 		
-		<!-- Font Stack -->
+		<!-- Font Stack - Will fetch auto based on body/heading family -->
 		<section id="fontstack" class="cd-fonts">
 			<div class="section-heading">Font Stacks</div>
 
@@ -69,7 +69,7 @@
 			</div>
 		</section>
 
-		<!-- Container Size and Gutter -->
+		<!-- Container Size and Gutter - Will fetch auto based on container/grid-container class -->
 		<section id="containersize" class="cd-containersize">
 			<div class="section-heading">Container Size and Gutter</div>
 
@@ -79,7 +79,7 @@
 			</div>
 		</section>
 
-		<!-- Typography -->
+		<!-- Typography - H1-H6 styles has been passed with additional p and anchor tag -->
 		<section id="typography" class="cd-typography">
 			<div class="section-heading">Typography</div>
 
@@ -127,7 +127,7 @@
 			</div>
 		</section>
 
-		<!-- Buttons -->
+		<!-- Buttons  -  Please change the class site-btn to appropriate button class name to reflect-->
 		<section id="buttons" class="cd-buttons">
 			<div class="section-heading">Buttons</div>
 
@@ -142,12 +142,14 @@
 
 		</section>
 		
-		<!-- Forms -->
+		<!-- Forms - Please add your common reusable form elements -->
 		<section id="form" class="cd-form">
 			<div class="section-heading">Form</div>
 			
 			<div class="cd-box">
+				<!-- Repeat the same block to have source option keep util-structure container everytime -->
 				<div class="util-structure">
+					<!-- Actual code -->
 					<div class="custom-checkbox">
 						<input type="checkbox">
 						<label>
@@ -155,18 +157,29 @@
 						</label>
 					</div>
 				</div>
+				<div class="util-structure">
+					<div class="custom-radio">
+						<input type="radio">
+						<label>
+							Radio
+						</label>
+					</div>
+				</div>
 			</div>
 		</section>
 
 
-		<!-- Helpers -->
+		<!-- Helpers - Reusable components please add all those common reusable blocks here -->
 		<section id="reusable" class="cd-reusable">
 			<div class="section-heading">Reusable Component</div>
 			<div class="cd-box">
+				<!-- Repeat the same block to have source option keep util-structure container everytime -->
 				<div class="util-structure">
 					<p id="breadcrumbs" class="breadcrumbs sub-font">Breadcrumb/Level1/Level2</p>
 				</div>
+				<!-- Repeat the same block to have source option keep util-structure container everytime -->
 				<div class="util-structure">
+					<!-- Actual code -->
 					<div class="blog-card blog-archive">
 						<div class="col-sm-6 col-lg-4 col-xl-3 mb-8 mb-4">
 							<a class="post_cols d-block underline-none d-flex flex-wrap  blog-archive__card blog-card color-inherit h-100 flex-column" href="<?php the_permalink(); ?>">
@@ -190,13 +203,15 @@
 			</div>
 		</section>
 
-		<!--Utilities-->
+		<!--Utilities - Please add all your utilities helper common classes -->
 		<section id="utilities" class="cd-utilities">
 			<div class="section-heading">Utilities</div>
 			<div class="cd-box">
+				<!-- Repeat the same block to have source option keep util-structure container everytime -->
 				<div class="util-structure">
 					<div class="text-underline">Text underline</div>
 				</div>
+				<!-- Repeat the same block to have source option keep util-structure container everytime -->
 				<div class="util-structure">
 					<div class="overflow-hidden">Overflow Hidden</div>
 				</div>
